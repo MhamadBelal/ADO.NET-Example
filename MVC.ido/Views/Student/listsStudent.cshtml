@@ -1,0 +1,44 @@
+﻿@using System.Data
+@model DataTable
+
+
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: coral;
+    }
+</style>
+
+
+<table>
+    <tr style="font-weight:bold; color:red;">
+        <td>Id</td>
+        <td>Name</td>
+        <td>Address</td>
+        <td>City</td>
+        <td>Condition</td>
+    </tr>
+
+    @foreach(DataRow dr in Model.Rows)
+            {
+<tr>
+    <td>@dr["Id"]</td>
+    <td>@dr["name"]</td>
+    <td>@dr["address"]</td>
+    <td>@dr["city"]</td>
+    <td>@dr["Isactive"]</td>
+    <td><a href="/Student/Delete/@dr["Id"]">Delete</a></td>
+</tr>
+            }
+
+</table>
